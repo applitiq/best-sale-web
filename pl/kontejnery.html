@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BEST-SALE.EU | Kontenery</title>
+<meta content="BEST-SALE.EU – lodní a skladovací kontejnery, Kontenery ONEWAY, použité kontejnery a skladovací kontejnery 10'." name="description"/>
+<style>
+    :root {
+      --bg: #0b0d12;
+      --bg-soft: #131821;
+      --panel: #161c26;
+      --panel-2: #1b2330;
+      --border: rgba(255,255,255,.08);
+      --text: #eef2f8;
+      --muted: #adb7c8;
+      --accent: #ef1d25;
+      --accent-2: #ff4d53;
+      --line: #2a3342;
+      --ok: #11b679;
+      --shadow: 0 20px 45px rgba(0,0,0,.35);
+      --radius: 22px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(239,29,37,.15), transparent 32%),
+        radial-gradient(circle at top right, rgba(255,255,255,.05), transparent 26%),
+        linear-gradient(180deg, #07090d 0%, #0c1118 50%, #0b0d12 100%);
+      line-height: 1.6;
+    }
+    a { color: #fff; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(8,10,14,.82);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 22px; min-height: 86px; }
+    .brand { display: flex; align-items: center; gap: 18px; }
+    .brand img { width: 220px; height: auto; }
+    .brand small { display:block; color: var(--muted); font-size: 13px; margin-top: 4px; }
+    nav ul { display:flex; gap: 10px; list-style:none; margin:0; padding:0; flex-wrap: wrap; justify-content:flex-end; }
+    nav a {
+      display:inline-block; padding: 11px 14px; border-radius: 999px;
+      color:#dbe3ef; font-size: 14px; font-weight: 700;
+      border: 1px solid transparent;
+      transition: .2s ease;
+    }
+    nav a:hover, nav a.active { background: rgba(239,29,37,.14); border-color: rgba(239,29,37,.35); color: #fff; }
+
+    .hero { position: relative; overflow: hidden; padding: 44px 0 36px; }
+    .hero-grid { display:block; }
+    .hero-card, .hero-image { border:1px solid var(--border); border-radius: 28px; overflow: hidden; box-shadow: var(--shadow); }
+    .hero-card { background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)); padding: 34px; position: relative; width:100%; }
+    .eyebrow { display:inline-flex; align-items:center; gap:10px; padding:8px 14px; border-radius:999px; background: rgba(239,29,37,.12); color:#fff; font-size:13px; font-weight:800; letter-spacing:.08em; text-transform: uppercase; }
+    .eyebrow::before { content:''; width:8px; height:8px; border-radius:50%; background: var(--accent); box-shadow: 0 0 0 8px rgba(239,29,37,.16); }
+    h1 { margin: 18px 0 16px; font-size: clamp(38px, 5vw, 64px); line-height: 1.05; letter-spacing: -.03em; }
+    .lead { font-size: 17px; color: #d9e1ee; max-width: none; width:100%; }
+    .hero-actions { display:flex; gap:12px; flex-wrap: wrap; margin-top: 24px; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 14px 18px; border-radius: 14px; font-weight:800; font-size:15px;
+      border:1px solid transparent; transition: .2s ease; cursor:pointer;
+    }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#fff; }
+    .btn.primary:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(239,29,37,.22); }
+    .btn.secondary { background: rgba(255,255,255,.04); color:#fff; border-color: rgba(255,255,255,.08); }
+    .btn.secondary:hover { background: rgba(255,255,255,.07); }
+    .hero-stats { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 28px; }
+    .stat { background: rgba(255,255,255,.03); border:1px solid var(--border); border-radius: 18px; padding: 16px; }
+    .stat strong { display:block; font-size: 24px; margin-bottom: 4px; }
+    .stat span { color: var(--muted); font-size:14px; }
+    .hero-image { display:none; }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-image .badge { position:absolute; right:18px; bottom:18px; padding:10px 14px; background: rgba(8,10,14,.74); border:1px solid rgba(255,255,255,.1); border-radius: 999px; font-weight:700; font-size:14px; }
+
+    section { padding: 26px 0; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom: 18px; flex-wrap: wrap; }
+    h2 { font-size: clamp(28px, 4vw, 40px); margin:0; line-height:1.1; }
+    .section-kicker { color: var(--accent-2); text-transform: uppercase; letter-spacing: .1em; font-weight: 800; font-size: 13px; margin-bottom: 8px; }
+    .section-intro { max-width: 78ch; color: #d2d8e3; font-size: 17px; }
+
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .panel { padding: 24px; }
+
+    .dimensions { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; }
+    .dim-card { padding:22px; }
+    .dim-card h3 { margin: 14px 0 10px; font-size: 22px; }
+    .dim-card p { margin:0; color: var(--muted); }
+    .dim-card img { width: 100%; border-radius: 16px; border: 1px solid rgba(255,255,255,.07); margin-bottom: 14px; }
+    .dim-note { margin-top: 12px; text-align: center; font-size: 13px; color: var(--muted); }
+    .full-illustration { margin-top: 18px; padding: 18px; }
+    .full-illustration img { width: 100%; border-radius: 18px; border:1px solid rgba(255,255,255,.07); }
+    .metric-list { list-style:none; padding:0; margin: 14px 0 0; display:grid; gap:10px; }
+    .metric-list li { display:flex; justify-content:space-between; gap:12px; padding:10px 12px; background: rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.05); border-radius: 12px; }
+    .metric-list span { color: var(--muted); }
+    .metric-list strong { text-align:right; }
+    .container-drawing { width:100%; aspect-ratio: 16/9; background: linear-gradient(180deg, #212730, #151b23); border-radius: 16px; position: relative; overflow:hidden; border:1px solid rgba(255,255,255,.06); }
+    .container-drawing .body { position:absolute; left:14%; top:33%; width:68%; height:34%; background: linear-gradient(135deg, #676f78, #3c434c); transform: skewX(-12deg); box-shadow: inset 0 0 0 2px rgba(255,255,255,.12); }
+    .container-drawing .rib { position:absolute; top: 0; bottom: 0; width: 3px; background: rgba(255,255,255,.12); }
+    .container-drawing .door { position:absolute; left:0; top:0; width:22%; height:100%; border-right:2px solid rgba(255,255,255,.2); }
+    .container-drawing .line-h, .container-drawing .line-v { position:absolute; background: rgba(255,255,255,.85); }
+    .container-drawing .line-h { height:2px; left:18%; right:18%; top:24%; }
+    .container-drawing .line-v { width:2px; top:27%; bottom:20%; left:10%; }
+    .container-drawing .label-top, .container-drawing .label-side { position:absolute; font-weight:800; font-size:13px; color:#fff; }
+    .container-drawing .label-top { left:45%; top:14%; }
+    .container-drawing .label-side { left:4%; top:53%; transform: rotate(-90deg); transform-origin:left top; }
+
+    .oneway-wrap { display:grid; grid-template-columns: 1.15fr .85fr; gap:18px; }
+    .feature-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px; margin-top:18px; }
+    .feature { padding: 16px; background: rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius: 16px; }
+    .feature strong { display:block; margin-bottom:8px; font-size: 18px; }
+    .feature p { margin:0; color: var(--muted); font-size: 14px; }
+    .gallery-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px; }
+    .gallery-card { position:relative; overflow:hidden; border-radius:20px; border:1px solid var(--border); min-height: 220px; }
+    .gallery-card.tall { grid-row: span 2; min-height: 460px; }
+    .gallery-card img { width:100%; height:100%; object-fit:cover; }
+    .gallery-card .cap { position:absolute; left:12px; bottom:12px; padding:8px 10px; border-radius: 12px; background: rgba(8,10,14,.78); border:1px solid rgba(255,255,255,.12); font-size: 12px; font-weight: 700; }
+    .gallery-note { margin-top: 12px; color: var(--muted); font-size: 13px; }
+
+    .ral-card { margin-top: 18px; padding: 18px; display:grid; grid-template-columns: 1.12fr .88fr; gap: 16px; align-items:center; }
+    .ral-card img { width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.07); }
+    .ral-card p { margin: 10px 0 0; color: var(--muted); }
+    .callout { margin-top: 16px; padding: 16px 18px; border-left: 4px solid var(--accent); background: rgba(239,29,37,.08); border-radius: 16px; color:#f2f5fb; }
+
+    .pricing-note { margin-bottom: 14px; color: #dbe1eb; }
+    .table-wrap { overflow:auto; border-radius: 20px; border:1px solid var(--border); box-shadow: var(--shadow); }
+    table { width: 100%; border-collapse: collapse; min-width: 760px; background: rgba(255,255,255,.02); }
+    th, td { padding: 16px 18px; border-bottom: 1px solid rgba(255,255,255,.06); text-align:left; vertical-align: top; }
+    th { background: rgba(255,255,255,.04); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color:#fff; }
+    tbody tr:hover { background: rgba(255,255,255,.03); }
+    td small { display:block; color: var(--muted); margin-top:6px; }
+    .price { font-weight: 900; color:#fff; white-space: nowrap; }
+    .muted { color: var(--muted); }
+    .tag { display:inline-flex; align-items:center; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:800; text-transform: uppercase; }
+    .tag.sale { background: rgba(239,29,37,.16); color:#fff; border:1px solid rgba(239,29,37,.34); }
+    .tag.info { background: rgba(255,255,255,.06); color:#dbe3ef; border:1px solid rgba(255,255,255,.1); }
+
+    .used-grid, .storage-grid { display:grid; grid-template-columns: 1fr 1fr; gap:18px; align-items:start; }
+    .two-col { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+    .gallery-card.short { min-height: 190px; }
+
+    .subsection-title { font-size: 24px; margin:0 0 10px; }
+    .specs { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px 16px; margin-top: 16px; }
+    .spec { padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.05); }
+    .spec strong { display:block; font-size: 14px; color:#fff; margin-bottom:4px; }
+    .spec span { color: var(--muted); font-size: 15px; }
+
+    .cta { padding: 6px 0 30px; }
+    .cta-card { display:grid; grid-template-columns: 1.1fr .9fr; gap: 20px; padding: 26px; align-items:center; }
+    .cta-logo { max-width: 310px; opacity: .95; }
+    .operator-card { margin-top: 10px; padding: 22px; display:grid; grid-template-columns: 1fr auto; gap:18px; align-items:center; }
+    .operator-card p { margin:0; color: #d8deea; }
+    .operator-card strong { display:block; margin-bottom: 8px; font-size: 18px; }
+    .operator-logo { width: 240px; max-width: 100%; justify-self:end; }
+
+    footer { padding: 10px 0 38px; }
+    .footer-line { border-top:1px solid rgba(255,255,255,.08); padding-top: 22px; text-align:center; color: var(--muted); }
+    .footer-line strong { color:#fff; letter-spacing:.06em; }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .oneway-wrap, .used-grid, .storage-grid, .cta-card, .ral-card, .operator-card { grid-template-columns: 1fr; }
+      .dimensions { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-card.tall { min-height: 320px; grid-row: span 1; }
+      .operator-logo { justify-self:start; }
+    }
+    @media (max-width: 760px) {
+      .topbar-inner { padding: 12px 0; align-items:flex-start; flex-direction: column; }
+      .brand img { width: 180px; }
+      nav ul { justify-content:flex-start; }
+      .hero-card { padding: 24px; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .dimensions, .feature-grid, .two-col, .specs { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-card, .gallery-card.tall { min-height: 240px; }
+      .container { width: min(var(--max), calc(100% - 22px)); }
+      h1 { font-size: clamp(32px, 11vw, 46px); }
+    }
+  
+/* Final layout refinements */
+.hero-grid{grid-template-columns:1fr!important;}
+.hero-card{max-width:none!important;width:100%;}
+.oneway-wrap{grid-template-columns:1fr!important;}
+.oneway-wrap > .panel{width:100%;}
+#oneway .full-illustration{margin-top:22px;}
+#skladovaci .section-head{grid-template-columns:1fr;}
+.shared-storage-specs{margin-top:18px;}
+.shared-specs-head{display:flex;flex-direction:column;gap:4px;margin-bottom:16px;}
+.shared-specs-head .subsection-title{margin:0;font-size:28px;}
+.shared-specs-note{margin:2px 0 0;color:var(--muted);max-width:75ch;}
+.shared-storage-specs .specs{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;}
+.shared-storage-specs .spec{min-height:94px;}
+@media(max-width:1100px){.shared-storage-specs .specs{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:650px){.shared-storage-specs .specs{grid-template-columns:1fr;}}
+
+    .oneway-gallery-block { margin-top: 24px; }
+    .oneway-gallery-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin:0 0 14px; }
+    .oneway-gallery-head .subsection-title { margin:4px 0 0; font-size:28px; }
+    .oneway-gallery-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+    .oneway-gallery-card { margin:0; min-width:0; height:210px; border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; background:linear-gradient(180deg,#10151d,#0b0f15); box-shadow:0 10px 24px rgba(0,0,0,.18); display:flex; align-items:center; justify-content:center; }
+    .oneway-gallery-card img { width:100%; height:100%; object-fit:contain; display:block; }
+    @media (max-width: 900px) { .oneway-gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .oneway-gallery-card { height:230px; } }
+    @media (max-width: 560px) { .oneway-gallery-grid { grid-template-columns:1fr; } .oneway-gallery-card { height:auto; min-height:220px; } .oneway-gallery-card img { height:auto; max-height:360px; } }
+
+.oneway-gallery-note{margin:10px 0 0;max-width:980px;color:#aeb8c8;font-size:14px;line-height:1.65}
+
+/* Language switch CZ / SK */
+.lang-switch{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;align-items:center;gap:5px;padding:6px 8px;border:1px solid rgba(218,177,88,.38);border-radius:999px;background:rgba(8,9,11,.92);box-shadow:0 8px 28px rgba(0,0,0,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-family:Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;line-height:1}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;min-width:30px;padding:7px 8px;border-radius:999px;color:#e8edf3;text-decoration:none;transition:.18s ease}
+.lang-switch a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.lang-switch a.active{color:#17120a;background:linear-gradient(135deg,#f4dfa4,#c99d45 68%,#fff2c7);box-shadow:inset 0 0 0 1px rgba(255,255,255,.34)}
+.lang-switch .sep{color:#7f8792;font-weight:500;letter-spacing:0}
+@media(max-width:600px){.lang-switch{right:10px;bottom:10px;padding:5px 6px}.lang-switch a{min-width:28px;padding:6px 7px;font-size:10px}}
+
+</style>
+
+
+<link href="https://best-sale.eu/kontejnery.html" hreflang="cs" rel="alternate"/><link href="https://best-sale.eu/sk/kontejnery.html" hreflang="sk" rel="alternate"/><link href="https://best-sale.eu/pl/kontejnery.html" hreflang="pl" rel="alternate"/><link href="https://best-sale.eu/en/kontejnery.html" hreflang="en" rel="alternate"/><link href="https://best-sale.eu/kontejnery.html" hreflang="x-default" rel="alternate"/></head>
+<body><div aria-label="Wybór języka" class="lang-switch"><a href="../kontejnery.html" lang="cs">CZ</a><span class="sep">|</span><a href="../sk/kontejnery.html" lang="sk">SK</a><span class="sep">|</span><a aria-current="page" class="active" href="kontejnery.html" lang="pl">PL</a><span class="sep">|</span><a href="../en/kontejnery.html" lang="en">EN</a></div>
+
+<header class="topbar">
+<div class="container topbar-inner">
+<div class="brand">
+<a aria-label="BEST-SALE.EU – hlavní stránka" href="index.html"><img alt="BEST-SALE.EU" src="../assets/images/cf78fc4e5ea27455.png"/></a>
+</div>
+<nav aria-label="Hlavní navigace">
+<ul>
+<li><a href="index.html">Strona główna</a></li>
+<li><a class="active" href="kontejnery.html">Kontenery</a></li>
+<li><a href="automobily.html">Samochody</a></li>
+<li><a href="elektronika.html">Elektronika</a></li>
+<li><a href="nemovitosti.html">Nieruchomości</a></li>
+<li><a href="ostatni.html">Pozostałe</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="container hero-grid">
+<div class="hero-card">
+<h1>Kontenery, logistyka i bezkonkurencyjne ceny.</h1>
+<p class="lead">
+            Kontenery ONEWAY (niemal nowe kontenery po jednej podróży) są częstym elementem naszej oferty. Korzystając z usług wielu terminali kontenerowych w kilku krajach Europy, możemy organizować dostawy z całego świata. Priorytetowo pozyskujemy je z Chin, kupując większe serie bezpośrednio od producenta. Zamówiony kontener odbywa wówczas tylko jedną podróż przez ocean, której koszt ponosi właściciel ładunku, częściowo wpływając w ten sposób również na cenę samego kontenera. Dzięki dopracowanej logistyce, rozbudowanej sieci dostawców i wykorzystaniu nowoczesnych systemów informatycznych jesteśmy w stanie w stosunkowo krótkim czasie zapewnić klientom kontenery wszystkich typów i wymiarów, najczęściej w wymaganym kolorze RAL, w dowolnej ilości, wraz z transportem na terenie całej Europy. <strong>Dzięki unikalnemu połączeniu producenta z klientem końcowym, bez konieczności magazynowania lub przy minimalnym czasie składowania, możemy oferować kontenery ONEWAY w bezkonkurencyjnych cenach.</strong>
+</p>
+<div class="hero-actions">
+<a class="btn primary" href="#oneway">Zobacz ofertę ONEWAY</a>
+<a class="btn secondary" href="mailto:info@auto-financial.sk?subject=Popt%C3%A1vka%20-%20kontejnery">Wyślij zapytanie</a>
+</div>
+<div class="hero-stats">
+<div class="stat"><strong>20' / 40'</strong><span>warianty standardowe, HC i specjalne</span></div>
+<div class="stat"><strong>RAL</strong><span>kolor według wymagań i dostępności</span></div>
+<div class="stat"><strong>Europa</strong><span>organizujemy także transport do klienta</span></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rozmery">
+<div class="container">
+<div class="section-head">
+<div>
+<div class="section-kicker">Oznaczenia i wymiary</div>
+<h2>Podstawowe typy kontenerów</h2>
+</div>
+<div class="section-intro">
+            Oferujemy standardowe i podwyższone warianty (HC) w najbardziej poszukiwanych rozmiarach. Dostępne są również wersje specjalne, np. DD i SD.
+          </div>
+</div>
+<div class="dimensions">
+<article class="card dim-card">
+<img alt="Lodní kontejner 20' DC – ilustrační rozměrové vyobrazení" src="../assets/images/9379447a129689fd.png"/>
+<h3>Kontener 20' DC</h3>
+<p>Standardowy suchy kontener do zwykłego magazynowania, transportu i adaptacji.</p>
+<ul class="metric-list">
+<li><span>Długość</span><strong>6,06 m</strong></li>
+<li><span>Szerokość</span><strong>2,44 m</strong></li>
+<li><span>Wysokość</span><strong>2,60 m</strong></li>
+</ul>
+</article>
+<article class="card dim-card">
+<img alt="Lodní kontejner 20' HC – ilustrační rozměrové vyobrazení" src="../assets/images/d58e5fed8430d065.png"/>
+<h3>Kontener 20' HC</h3>
+<p>Wyższy wariant ze zwiększoną przestrzenią wewnętrzną, odpowiedni do bardziej wymagających zastosowań.</p>
+<ul class="metric-list">
+<li><span>Długość</span><strong>6,06 m</strong></li>
+<li><span>Szerokość</span><strong>2,44 m</strong></li>
+<li><span>Wysokość</span><strong>2,90 m</strong></li>
+</ul>
+</article>
+<article class="card dim-card">
+<img alt="Lodní kontejner 40' HC – ilustrační rozměrové vyobrazení" src="../assets/images/b958455c36476b72.png"/>
+<h3>Kontener 40' HC</h3>
+<p>Rozwiązanie o dużej pojemności do logistyki, magazynowania i zastosowań budowlanych.</p>
+<ul class="metric-list">
+<li><span>Długość</span><strong>12,19 m</strong></li>
+<li><span>Szerokość</span><strong>2,44 m</strong></li>
+<li><span>Wysokość</span><strong>2,90 m</strong></li>
+</ul>
+</article>
+<article class="card dim-card">
+<img alt="Lodní kontejnery DD / SD – ilustrační vyobrazení" src="../assets/images/8308acdd5dea5aa4.png"/>
+<h3>Kontenery DD / SD</h3>
+<p>Warianty specjalne z drzwiami na obu końcach lub otwieraniem bocznym, ułatwiające manipulację.</p>
+<ul class="metric-list">
+<li><span>Długości</span><strong>6 m i 12 m</strong></li>
+<li><span>DD</span><strong>Drzwi na obu końcach</strong></li>
+<li><span>SD</span><strong>Otwieranie boczne</strong></li>
+</ul>
+</article>
+</div>
+<div class="dim-note">podane wymiary są zaokrąglone</div>
+<article class="card full-illustration">
+<img alt="Přesné technické parametry lodních kontejnerů" src="../assets/images/2fceee62a43b937f.png"/>
+</article>
+</div>
+</section>
+<section id="oneway">
+<div class="container">
+<div class="section-head">
+<div>
+<div class="section-kicker">Kontenery ONEWAY</div>
+<h2>Niemal nowe kontenery po jednej podróży</h2>
+</div>
+<div class="section-intro">
+            Solidne, certyfikowane i uniwersalne kontenery ISO z minimalnymi lub zerowymi śladami zużycia.
+          </div>
+</div>
+<div class="oneway-wrap">
+<article class="card panel">
+<p>
+              Kontenery morskie spełniają normy ISO, posiadają naroża kontenerowe i charakteryzują się wysoką odpornością. Do produkcji stosowana jest stal CORTEN – specjalny stop z dodatkiem miedzi, chromu i niklu, który tworzy ochronną warstwę patyny. Warstwa ta znacznie spowalnia dalszą korozję. Oferujemy rozmiary 20' i 40', w tym warianty standardowe, podwyższone (HC) oraz specjalne. Doskonale nadają się do <strong>długoterminowego magazynowania, logistyki oraz adaptacji na biura lub pomieszczenia mieszkalne</strong>.
+            </p>
+<p>
+              We wszystkich dostarczanych przez nas kontenerach drzwi działają płynnie, uszczelnienia są w idealnym stanie, a podłoga jest mocna, czysta i bez widocznych uszkodzeń. Wszystkie posiadają osłonę zamka, a wysokiej jakości zamek zabezpieczający o wartości 50 EUR jest dołączany do każdego kontenera <strong>bezpłatnie</strong>.
+            </p>
+<div class="feature-grid">
+<div class="feature">
+<strong>Certyfikacja ISO</strong>
+<p>Solidna konstrukcja stalowa, znormalizowane wymiary i wysoka odporność do transportu oraz długotrwałego użytkowania.</p>
+</div>
+<div class="feature">
+<strong>Minimalne zużycie</strong>
+<p>Kontenery ONEWAY mają minimalne lub żadne ślady użytkowania i oferują idealny stosunek ceny do stanu.</p>
+</div>
+<div class="feature">
+<strong>Pełna funkcjonalność</strong>
+<p>Drzwi działają płynnie, są prawidłowo ustawione, uszczelnienia są w idealnym stanie, a kontener jest suchy i czysty.</p>
+</div>
+<div class="feature">
+<strong>Zabezpieczenie gratis</strong>
+<p>Do każdego dostarczonego kontenera dodajemy bezpłatnie wysokiej jakości zamek zabezpieczający o wartości 50 EUR.</p>
+</div>
+</div>
+<div class="card full-illustration" style="margin-top:18px;">
+<div style="padding: 4px 4px 12px;">
+<h3 class="subsection-title" style="margin:0 0 8px;">Wzornik kolorów RAL kontenerów</h3>
+<p style="margin:0; color: var(--muted);">Dostępność poszczególnych kolorów może się różnić w zależności od typu kontenera, serii produkcyjnej i aktualnych stanów magazynowych.</p>
+</div>
+<img alt="Wzornik kolorów RAL kontenerów" src="../assets/images/a84acff9f537cb53.png"/>
+<div class="callout" style="margin-top:14px;"><strong>RAL według wymagań / dostępności</strong><br/>Kolor kontenera możemy dostosować do konkretnego zapytania, planowanego zastosowania i identyfikacji wizualnej firmy.</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section id="cenik-oneway">
+<div class="container">
+<div class="section-head">
+<div>
+<div class="section-kicker">Aktualny cennik</div>
+<h2>Kontenery ONEWAY</h2>
+</div>
+<div class="section-intro">Ceny dotyczą 1 szt. Przy większej ilości przygotujemy indywidualną ofertę i kalkulację.</div>
+</div>
+<article class="card panel">
+<p class="pricing-note"><strong>Ceny zaktualizowano 9.09.2026.</strong> Dostępne są różne warianty fakturowania i rozliczania VAT, zależnie od kraju i podmiotu. W niektórych przypadkach VAT nie jest naliczany. W wybranych przypadkach oferujemy transport bezpłatny, w pozostałych koszt transportu jest kalkulowany indywidualnie.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Produkt</th>
+<th>Specyfikacja</th>
+<th>Cena</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ONEWAY 20' DC</strong></td>
+<td>6 m · RAL według wymagań / dostępności</td>
+<td class="price">2.410 € / 57.500 Kč brutto</td>
+<td><span class="tag info">standard</span></td>
+</tr>
+<tr>
+<td><strong>ONEWAY 20' HC</strong></td>
+<td>6 m · RAL według wymagań / dostępności</td>
+<td class="price">2.550 € / 60.900 Kč brutto</td>
+<td><span class="tag sale">Promocja!!!</span></td>
+</tr>
+<tr>
+<td><strong>ONEWAY 40' DC</strong></td>
+<td>12 m · RAL według wymagań / dostępności</td>
+<td class="price">Cena na zapytanie</td>
+<td class="muted">Oferta ograniczona</td>
+</tr>
+<tr>
+<td><strong>ONEWAY 40' HC</strong></td>
+<td>12 m · RAL według wymagań / dostępności</td>
+<td class="price">2.490 € / 59.500 Kč brutto</td>
+<td><span class="tag info">polecamy</span></td>
+</tr>
+<tr>
+<td><strong>ONEWAY 20' i 40' DD / SD</strong></td>
+<td>Z drzwiami na obu końcach lub otwieraniem bocznym</td>
+<td class="price">Wycena indywidualna</td>
+<td class="muted">Chętnie przygotujemy ofertę na miarę</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article>
+<div class="oneway-gallery-block">
+<div class="oneway-gallery-head">
+<div>
+<div class="section-kicker">Galeria zdjęć</div>
+<h3 class="subsection-title">Kontenery ONEWAY</h3>
+<p class="oneway-gallery-note">Nie jest to galeria konkretnej oferty kontenerów. Zdjęcia mają charakter ilustracyjny i pokazują stan różnych typów kontenerów po jednej podróży morskiej oraz ich detale.</p>
+</div>
+</div>
+<div class="oneway-gallery-grid">
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 02" loading="lazy" src="../assets/images/9303eb48cbd0b970.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 08" loading="lazy" src="../assets/images/516534ba8d9225cf.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 16" loading="lazy" src="../assets/images/ab82cfdd872a3507.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 18" loading="lazy" src="../assets/images/63ae497c37948ebf.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 20" loading="lazy" src="../assets/images/e9670940b9460923.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 04" loading="lazy" src="../assets/images/289ccd5528d7c9b3.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 06" loading="lazy" src="../assets/images/cb020198bd482c8f.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 19" loading="lazy" src="../assets/images/5f8ce4854b0f6965.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 14" loading="lazy" src="../assets/images/daea5a07077b542e.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 17" loading="lazy" src="../assets/images/410647b4b0dd8334.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 12" loading="lazy" src="../assets/images/f25c1d91894aa8fe.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 15" loading="lazy" src="../assets/images/b9f9cd5a46475652.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 01" loading="lazy" src="../assets/images/c35ba4aca6ddd7a3.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 03" loading="lazy" src="../assets/images/433270eecbce63dd.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 05" loading="lazy" src="../assets/images/ce929ab347c69509.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 07" loading="lazy" src="../assets/images/d741f1d679dcb969.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 09" loading="lazy" src="../assets/images/bf191c9e947e1674.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 10" loading="lazy" src="../assets/images/518482c4a4ee1fb9.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 11" loading="lazy" src="../assets/images/dcc2eb8ade92cb71.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 13" loading="lazy" src="../assets/images/05f55d5c2f51f2f3.jpg"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 21" loading="lazy" src="../assets/images/ffdfdf235b330bc2.png"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 22" loading="lazy" src="../assets/images/f8b6313007559131.png"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 23" loading="lazy" src="../assets/images/a66992dcb4ccba4f.png"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 24" loading="lazy" src="../assets/images/11b8a643b2357ba4.png"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 25" loading="lazy" src="../assets/images/c3a7a890b67571c5.png"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 26" loading="lazy" src="../assets/images/7bbd0b679f3d6345.png"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 27" loading="lazy" src="../assets/images/3626204afd8dde5b.png"/></figure>
+<figure class="oneway-gallery-card"><img alt="ONEWAY kontejner – fotografie 28" loading="lazy" src="../assets/images/b532f214c2a086b5.png"/></figure>
+</div>
+</div>
+</div>
+</section>
+<section id="pouzite-lodni">
+<div class="container">
+<div class="section-head">
+<div>
+<div class="section-kicker">Używane kontenery morskie</div>
+<h2>Certyfikowane używane kontenery do magazynowania i adaptacji</h2>
+</div>
+<div class="section-intro">Oferta jest indywidualna i stale się zmienia. Podane ceny są orientacyjne i mogą się nieznacznie różnić.</div>
+</div>
+<div class="used-grid">
+<article class="card panel">
+<p>
+              Używane kontenery morskie w naszej ofercie są zawsze certyfikowane zgodnie z ISO i pozostają w pełni sprawne konstrukcyjnie, jednak noszą ślady użytkowania.
+              Mogą występować wgniecenia, ogniska rdzy, drobne wady kosmetyczne lub prawidłowo wykonane naprawy bez wpływu na funkcjonalność. Kolor może być wyblakły.
+            </p>
+<p>
+              Drzwi są zawsze wyregulowane, sprawne, szczelne i prawidłowo ustawione. Podłoga może mieć otarcia lub drobne uszkodzenia, ale pozostaje w pełni funkcjonalna.
+              Kontenery są suche i szczelne. Nadają się do magazynowania lub adaptacji wszędzie tam, gdzie wygląd nie jest najważniejszy.
+            </p>
+<p>
+              Oferowane kontenery znajdują się w różnych częściach Słowacji, Czech i Polski, dlatego koszt transportu jest ustalany indywidualnie. Wyślij nam zapytanie, a postaramy się znaleźć kontener zgodny z Twoimi wymaganiami w możliwie najbliższej lokalizacji.
+            </p>
+</article>
+<aside>
+<div class="two-col">
+<figure class="gallery-card short"><img alt="Stohované použité lodní kontejnery – ilustrační fotografie" src="../assets/images/0a0e5cd54e1339ea.jpg"/><figcaption class="cap">Używane kontenery morskie · zdjęcie ilustracyjne</figcaption></figure>
+<figure class="gallery-card short"><img alt="Kontejnerové depo – ilustrační fotografie" src="../assets/images/4440384c21c3b720.jpg"/><figcaption class="cap">Używane kontenery morskie · zdjęcie ilustracyjne</figcaption></figure>
+</div>
+<div class="gallery-note">Zdjęcia w tej sekcji mają charakter ilustracyjny i pokazują typowy wygląd oraz użytkowanie używanych kontenerów morskich.</div>
+</aside>
+</div>
+<article class="card panel" style="margin-top:18px;">
+<h3 class="subsection-title">Orientacyjne ceny używanych kontenerów morskich</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Produkt</th>
+<th>Specyfikacja</th>
+<th>Cena</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Używany 20' DC</strong></td>
+<td>6 m</td>
+<td class="price">1.490 € / 35.500 Kč brutto</td>
+<td class="muted">Cena orientacyjna</td>
+</tr>
+<tr>
+<td><strong>Używany 20' HC</strong></td>
+<td>6 m</td>
+<td class="price">1.680 € / 39.900 Kč brutto</td>
+<td class="muted">Cena orientacyjna</td>
+</tr>
+<tr>
+<td><strong>Używany 40' DC</strong></td>
+<td>12 m</td>
+<td class="price">Cena na zapytanie</td>
+<td class="muted">Oferta ograniczona</td>
+</tr>
+<tr>
+<td><strong>Używany 40' HC</strong></td>
+<td>12 m</td>
+<td class="price">1.530 € / 36.500 Kč brutto</td>
+<td class="muted">Cena orientacyjna</td>
+</tr>
+<tr>
+<td><strong>Używany 20' DC / HC</strong></td>
+<td>6 m · z instalacją elektryczną i oświetleniem</td>
+<td class="price">1.990 € / 49.500 Kč brutto</td>
+<td><span class="tag info">praktyczne rozwiązanie</span></td>
+</tr>
+<tr>
+<td><strong>Używany 40' HC</strong></td>
+<td>12 m · z instalacją elektryczną i oświetleniem</td>
+<td class="price">2.550 € / 60.900 Kč brutto</td>
+<td><span class="tag info">praktyczne rozwiązanie</span></td>
+</tr>
+<tr>
+<td><strong>Używany 20' DC / HC</strong></td>
+<td>6 m · chłodniczy</td>
+<td class="price">Obecnie niedostępne</td>
+<td class="muted">Dostępność na zapytanie</td>
+</tr>
+<tr>
+<td><strong>Używany 40' HC</strong></td>
+<td>12 m · chłodniczy</td>
+<td class="price">Obecnie niedostępne</td>
+<td class="muted">Dostępność na zapytanie</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article>
+</div>
+</section>
+<section id="skladovaci">
+<div class="container">
+<div class="section-head">
+<div>
+<div class="section-kicker">Kontenery magazynowe</div>
+<h2>Praktyczne rozwiązania magazynowe</h2>
+</div>
+</div>
+<div class="storage-grid">
+<article class="card panel">
+<h3 class="subsection-title">Używane kontenery magazynowe 10' – 3 m</h3>
+<div class="callout"><strong>Używany kontener magazynowy 10' – 3 m</strong><br/><span class="price">1.290 € / 30.900 Kč brutto</span></div>
+<p>
+              Oferta używanych kontenerów magazynowych jest bardzo ograniczona i często się zmienia. Podane ceny są orientacyjne i nieznacznie różnią się w zależności od stopnia zużycia. Oferowane kontenery znajdują się w różnych częściach Słowacji, Czech i Polski, dlatego koszt transportu jest zawsze kalkulowany indywidualnie.
+            </p>
+<p>
+              Wyślij nam zapytanie, a postaramy się znaleźć kontener zgodny z Twoimi wymaganiami w możliwie najbliższej lokalizacji.
+            </p>
+</article>
+<article class="card panel">
+<h3 class="subsection-title">Nowe kontenery magazynowe 10' – 3 m</h3>
+<div class="callout"><strong>Nowy kontener magazynowy 10' – 3 m, kolor RAL do wyboru</strong><br/><span class="price">2.550 € / 60.900 Kč brutto</span></div>
+<p>We współpracy z naszym dostawcą i producentem (PL) oferujemy nowe kontenery magazynowe 10' – 3 m.</p>
+<p>Rama wykonana jest z profili stalowych 2 mm. Kontenery wyposażone są w dwuskrzydłowe drzwi z uszczelnieniem na całym obwodzie, ocynkowane rygle zamykające oraz 4 wymuszone otwory wentylacyjne.</p>
+</article>
+</div><article class="card panel shared-storage-specs"><div class="shared-specs-head"><div class="section-kicker">Parametry techniczne</div><h3 class="subsection-title">Kontenery magazynowe 10' – 3 m</h3><p class="shared-specs-note">Poniższe parametry techniczne dotyczą zarówno nowych, jak i używanych kontenerów magazynowych tego wariantu.</p></div><div class="specs">
+<div class="spec"><strong>Maksymalna dopuszczalna ładowność</strong><span>10.000 kg</span></div>
+<div class="spec"><strong>Podłoga</strong><span>Płyty fornirowane z drewna warstwowego, grubość 20 mm</span></div>
+<div class="spec"><strong>Kolor kontenera</strong><span>RAL według własnego wyboru, wysokiej jakości malowanie proszkowe na bazie poliestru</span></div>
+<div class="spec"><strong>Rozstaw osi kieszeni dla wózka widłowego</strong><span>950 mm</span></div>
+<div class="spec"><strong>Wymiary zewnętrzne (D × S × W)</strong><span>2991 × 2438 × 2591 mm</span></div>
+<div class="spec"><strong>Wymiary wewnętrzne (D × S × W)</strong><span>2831 × 2344 × 2376 mm</span></div>
+<div class="spec"><strong>Otwór drzwiowy (S × W)</strong><span>2310 × 2280 mm</span></div>
+<div class="spec"><strong>Objętość przestrzeni ładunkowej</strong><span>15,75 m³</span></div>
+<div class="spec"><strong>Masa</strong><span>845 kg</span></div>
+<div class="spec"><strong>Odporność powłoki</strong><span>Wysoka odporność na korozję i promieniowanie UV<br/>Grubość warstwy min. 60 μm.</span></div>
+</div></article>
+<article class="card panel" style="margin-top:18px;">
+<div class="section-head" style="margin-bottom:14px;">
+<div>
+<div class="section-kicker">Nowe kontenery magazynowe</div>
+<h3 class="subsection-title" style="font-size:28px; margin:0;">Galeria 10' – 3 m</h3>
+</div>
+<div class="section-intro" style="font-size:15px; max-width: 52ch;">Zdjęcia prezentacyjne nowych kontenerów magazynowych 10' – 3 m.</div>
+</div>
+<div class="gallery-grid">
+<figure class="gallery-card"><img alt="Nový skladovací kontejner 10' – čelní pohled" src="../assets/images/2c864cf176c45656.png"/><figcaption class="cap">Widok z przodu · zdjęcie prezentacyjne</figcaption></figure>
+<figure class="gallery-card"><img alt="Nový skladovací kontejner 10' – boční pohled" src="../assets/images/22b018434ac49210.png"/><figcaption class="cap">Widok z boku · zdjęcie prezentacyjne</figcaption></figure>
+<figure class="gallery-card"><img alt="Nový skladovací kontejner 10' – otevřené dveře" src="../assets/images/90163d1890cb5c24.png"/><figcaption class="cap">Otwarte drzwi · zdjęcie prezentacyjne</figcaption></figure>
+<figure class="gallery-card"><img alt="Nový skladovací kontejner 10' – interiér" src="../assets/images/7c1463f6e5a76c93.png"/><figcaption class="cap">Wnętrze · zdjęcie prezentacyjne</figcaption></figure>
+</div>
+</article>
+</div>
+</section>
+<section class="cta" id="kontakt">
+<div class="container">
+<article class="card cta-card">
+<div>
+<div class="section-kicker">Zapytanie</div>
+<h2>Szukasz innego typu kontenera?</h2>
+<p class="section-intro" style="max-width: 68ch;">
+              Jeżeli interesuje Cię inny typ kontenera – np. kontener wycofany z eksploatacji, kontener z oknami, biurowy, sanitarny lub nietypowy – wyślij nam zapytanie.
+            </p>
+<div class="hero-actions" style="margin-top:20px;">
+<a class="btn primary" href="mailto:info@best-sale.eu?subject=Popt%C3%A1vka%20-%20kontejnery">info@best-sale.eu</a>
+</div>
+</div>
+<div>
+<img alt="BEST-SALE.EU" class="cta-logo" src="../assets/images/cf78fc4e5ea27455.png"/>
+</div>
+</article>
+</div>
+</section>
+</main>
+<footer>
+<div class="container footer-line">
+<strong>© BEST-SALE.EU</strong>
+</div>
+</footer>
+</body>
+</html>

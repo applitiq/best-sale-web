@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Elektronika<br/>dla domu<br/>i firm</title>
+<style>
+:root{
+  --bg:#04070c;
+  --bg2:#0a0f18;
+  --panel:#0b1118;
+  --panel2:#101823;
+  --line:rgba(255,255,255,.08);
+  --soft:rgba(255,255,255,.04);
+  --text:#f4f7fb;
+  --muted:#bcc6d6;
+  --muted2:#8f9cb0;
+  --red:#ff3b41;
+  --gold1:#f7dc93;
+  --gold2:#c89d3f;
+  --green:#10c07d;
+  --shadow:0 20px 50px rgba(0,0,0,.40);
+  --max:980px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255,59,65,.12), transparent 34%),
+    radial-gradient(circle at 80% 0%, rgba(255,59,65,.08), transparent 28%),
+    linear-gradient(180deg,#03060b 0%, #060b12 100%);
+  line-height:1.5;
+}
+a{color:inherit;text-decoration:none}
+.shell{width:min(var(--max),calc(100% - 16px));margin:6px auto 18px;border:1px solid #213040;border-radius:16px;overflow:hidden;background:linear-gradient(180deg,#070b12 0%,#090f17 100%);box-shadow:var(--shadow)}
+.inner{padding:0 18px}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;border-bottom:1px solid rgba(255,214,102,.18);background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.12))}
+.brand-logo{display:flex;align-items:center;flex:0 0 auto}
+.brand-logo img{display:block;width:170px;height:auto;object-fit:contain}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.logo-wrap{display:flex;flex-direction:column;line-height:1}
+.swoosh{height:14px;width:96px;position:relative;margin-bottom:1px}
+.swoosh:before,.swoosh:after{content:'';position:absolute;left:0;right:0;border-top:2px solid var(--gold2);border-radius:50%;opacity:.95}
+.swoosh:before{top:6px;transform:skewX(-18deg)}
+.swoosh:after{top:1px;right:8px;left:8px;border-top-color:#f0cc75;opacity:.9}
+.logo-text{font-weight:900;letter-spacing:.02em;font-size:28px;background:linear-gradient(180deg,var(--gold1),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.nav a{font-size:12px;color:#e8edf5;opacity:.88;position:relative;padding:6px 0;font-weight:500}
+.nav a.active{opacity:1}
+.nav a.active:after{content:'';position:absolute;left:0;right:0;bottom:-9px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--red),#ff7075)}
+.hero{position:relative;min-height:246px;display:grid;grid-template-columns:1fr 1.15fr;align-items:stretch;background:
+   linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),
+   linear-gradient(120deg,rgba(255,59,65,.12),transparent 35%)}
+.hero-copy{padding:34px 22px 20px 18px;position:relative;z-index:2}
+.kicker{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#ff5d63;margin:0 0 8px}
+.hero h1{font-size:58px;line-height:.98;margin:0 0 10px;letter-spacing:-.03em}
+.hero .subtitle{font-size:15px;color:#d9e0ec;margin:0 0 18px}
+.hero .lead{font-size:14px;color:#dde4ee;max-width:38ch;margin:0}
+.hero-visual{min-height:246px;background-size:cover;background-position:center;position:relative}
+.hero-visual:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,10,15,.12),rgba(6,10,15,0) 20%, rgba(6,10,15,.06))}
+.content-block{display:grid;grid-template-columns:1.12fr .88fr;gap:18px;padding:18px;border-top:1px solid var(--line)}
+.blurb{font-size:13px;color:#d8e0eb}
+.icon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 10px;align-content:start}
+.icon-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;color:#edf2f8;font-size:12px}
+.icon-box{width:36px;height:36px;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01));display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.section-title{font-size:13px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#ff555c;margin:0 0 10px}
+.offer-wrap{padding:0 18px 0}
+.offer-card{display:grid;grid-template-columns:82px 1fr;gap:18px;align-items:center;padding:18px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:linear-gradient(135deg,rgba(255,255,255,.02),rgba(255,59,65,.06));box-shadow:var(--shadow)}
+.offer-icon{width:54px;height:54px;border:1px solid rgba(255,255,255,.18);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;background:rgba(255,255,255,.03)}
+.offer-card h3{margin:0 0 5px;font-size:38px;line-height:1.05;letter-spacing:-.02em}
+.offer-card p{margin:0;color:#d3dbe7;font-size:13px}
+.contact{padding:18px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;align-items:stretch;margin-top:12px}
+.contact-copy h2{font-size:26px;line-height:1.08;margin:0 0 8px}
+.contact-copy p{margin:0;color:#dbe3ef;font-size:13px;max-width:44ch}
+.contact-card{border:1px solid rgba(255,255,255,.08);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));padding:14px 16px;display:flex;align-items:center;gap:12px;min-height:62px}
+.contact-card.mail{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.contact-card .i{width:30px;height:30px;border-radius:9px;border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:16px;flex:0 0 30px;color:#fff}
+.contact-card .meta{font-size:11px;color:#96a5b9;display:block;line-height:1.15}
+.contact-card .main{font-weight:800;font-size:18px;line-height:1.2}
+.contact-card .sub{font-size:11px;color:#92a0b3;margin-top:2px}
+.footer{margin-top:4px;padding:14px 18px 16px;border-top:1px solid rgba(255,214,102,.22);text-align:center;font-size:12px;color:#cbd5e3}
+.footer .line{margin:2px 0}
+.footer strong{color:#fff}
+
+@media (max-width: 860px){
+  .topbar{flex-direction:column;align-items:flex-start;gap:8px}
+  .nav{gap:14px}
+  .hero{grid-template-columns:1fr}
+  .hero h1{font-size:44px}
+  .content-block,.contact-grid{grid-template-columns:1fr}
+  .offer-card{grid-template-columns:1fr; text-align:center}
+  .offer-icon{margin:0 auto}
+}
+
+/* Language switch CZ / SK */
+.lang-switch{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;align-items:center;gap:5px;padding:6px 8px;border:1px solid rgba(218,177,88,.38);border-radius:999px;background:rgba(8,9,11,.92);box-shadow:0 8px 28px rgba(0,0,0,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-family:Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;line-height:1}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;min-width:30px;padding:7px 8px;border-radius:999px;color:#e8edf3;text-decoration:none;transition:.18s ease}
+.lang-switch a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.lang-switch a.active{color:#17120a;background:linear-gradient(135deg,#f4dfa4,#c99d45 68%,#fff2c7);box-shadow:inset 0 0 0 1px rgba(255,255,255,.34)}
+.lang-switch .sep{color:#7f8792;font-weight:500;letter-spacing:0}
+@media(max-width:600px){.lang-switch{right:10px;bottom:10px;padding:5px 6px}.lang-switch a{min-width:28px;padding:6px 7px;font-size:10px}}
+
+</style>
+
+
+<link href="https://best-sale.eu/elektronika.html" hreflang="cs" rel="alternate"/><link href="https://best-sale.eu/sk/elektronika.html" hreflang="sk" rel="alternate"/><link href="https://best-sale.eu/pl/elektronika.html" hreflang="pl" rel="alternate"/><link href="https://best-sale.eu/en/elektronika.html" hreflang="en" rel="alternate"/><link href="https://best-sale.eu/elektronika.html" hreflang="x-default" rel="alternate"/></head>
+<body><div aria-label="Wybór języka" class="lang-switch"><a href="../elektronika.html" lang="cs">CZ</a><span class="sep">|</span><a href="../sk/elektronika.html" lang="sk">SK</a><span class="sep">|</span><a aria-current="page" class="active" href="elektronika.html" lang="pl">PL</a><span class="sep">|</span><a href="../en/elektronika.html" lang="en">EN</a></div>
+
+<div class="shell">
+<header class="topbar">
+<a aria-label="BEST-SALE.EU" class="brand-logo" href="index.html"><img alt="BEST-SALE.EU" src="../assets/images/15bc8ce0885c81c9.png"/></a>
+<nav class="nav">
+<a href="index.html">Strona główna</a>
+<a href="kontejnery.html">Kontenery</a>
+<a href="automobily.html">Samochody</a>
+<a class="active" href="elektronika.html">Elektronika</a>
+<a href="nemovitosti.html">Nieruchomości</a>
+<a href="ostatni.html">Pozostałe</a>
+<a href="#kontakt">Kontakt</a>
+</nav>
+</header>
+<section class="hero">
+<div class="hero-copy">
+<p class="kicker">Elektronika</p>
+<h1>Elektronika<br/>dla domu<br/>i firm</h1>
+<p class="subtitle">Nowoczesne technologie<br/>w korzystnych cenach</p>
+</div>
+<div class="hero-visual" style="background-image:url('../assets/images/5064e3189f3741fa.jpg')"></div>
+</section>
+<section class="content-block">
+<div class="blurb">Oferujemy elektronikę różnego rodzaju – od telefonów komórkowych, notebooków i tabletów, przez telewizory, aż po pozostały sprzęt konsumencki i firmowy. W tej sekcji znajdują się zarówno pojedyncze sztuki, jak i większe partie zakupionego przez nas towaru.</div>
+<div class="icon-grid"><div class="icon-item"><div class="icon-box">▮</div><div>Telefony komórkowe</div></div><div class="icon-item"><div class="icon-box">▭</div><div>Notebooki
+i komputery</div></div><div class="icon-item"><div class="icon-box">▰</div><div>Telewizory i audio</div></div><div class="icon-item"><div class="icon-box">◫</div><div>Tablety</div></div><div class="icon-item"><div class="icon-box">◔</div><div>Akcesoria</div></div><div class="icon-item"><div class="icon-box">⌘</div><div>Pozostały sprzęt</div></div></div>
+</section>
+<section class="offer-wrap">
+<p class="section-title">Aktualna oferta</p>
+<div class="offer-card">
+<div class="offer-icon">⌲</div>
+<div>
+<h3>W tej kategorii<br/>obecnie nie ma żadnej oferty.</h3>
+<p>Gdy tylko towar będzie dostępny, znajdziesz tutaj aktualną ofertę.</p>
+</div>
+</div>
+</section>
+<section class="contact" id="kontakt">
+<p class="section-title">Skontaktuj się z nami</p>
+<div class="contact-copy">
+<h2>Interesuje Cię elektronika?</h2>
+<p>Wyślij nam zapytanie, chętnie przedstawimy aktualne możliwości.</p>
+</div>
+<div class="contact-grid">
+<a class="contact-card mail" href="mailto:info@best-sale.eu">
+<div class="i">✉</div>
+<div>
+<div class="main">info@best-sale.eu</div>
+</div>
+</a>
+<a class="contact-card" href="tel:+420776167713">
+<div class="i">☎</div>
+<div>
+<div class="main">+420 776 167 713</div>
+<div class="sub">(CZ)</div>
+</div>
+</a>
+<a class="contact-card" href="tel:+421903540547">
+<div class="i" style="color:#4AE28A">◉</div>
+<div>
+<div class="main">+421 903 540 547</div>
+<div class="sub">(SK)</div>
+</div>
+</a>
+</div>
+</section>
+<footer class="footer">
+<div class="line">Właściciel marki BEST-SALE.EU</div>
+<div class="line"><strong>Kontakt:</strong> info@best-sale.eu</div>
+<div class="line">© BEST-SALE.EU</div>
+</footer>
+</div>
+</body>
+</html>

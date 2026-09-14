@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>BEST-SALE.EU | Automobily</title>
+<meta content="BEST-SALE.EU – nové, referenční a předváděcí vozy Toyota a Lexus, vozy z ukončených leasingů a další vozidla." name="description"/>
+<style>
+:root {
+  --bg:#080a0e; --panel:#11161e; --panel2:#171d27; --red:#ef1d25;
+  --text:#f4f6fa; --muted:#aeb8c8; --line:#293140; --green:#19b77b;
+  --gold:#e9b84f; --max:1280px; --shadow:0 20px 50px rgba(0,0,0,.34);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+  radial-gradient(circle at 75% 0,rgba(239,29,37,.13),transparent 30%),
+  linear-gradient(180deg,#07090c,#0b0f15 48%,#090c11);
+  color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(var(--max),calc(100% - 34px));margin:auto}
+header{position:sticky;top:0;z-index:30;background:rgba(7,9,12,.86);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.nav-brand{display:flex;align-items:center;gap:16px}
+.nav-brand img{width:205px}
+.nav-brand span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+nav ul{display:flex;gap:8px;list-style:none;margin:0;padding:0;flex-wrap:wrap;justify-content:flex-end}
+nav a{padding:10px 13px;border-radius:999px;font-size:14px;font-weight:700;color:#dbe2ed;border:1px solid transparent}
+nav a:hover,nav a.active{background:rgba(239,29,37,.13);border-color:rgba(239,29,37,.33);color:#fff}
+
+.hero{padding:38px 0 24px}
+.hero-image{position:relative;border:1px solid rgba(255,255,255,.08);border-radius:26px;overflow:hidden;box-shadow:var(--shadow);background:#10151c}
+.hero-image img{width:100%;height:auto;object-fit:contain;background:#10151c}
+.hero-overlay{position:absolute;inset:auto 0 0 0;padding:42px 34px 28px;background:linear-gradient(180deg,transparent,rgba(4,6,9,.88))}
+.hero-overlay strong{font-size:13px;text-transform:uppercase;letter-spacing:.13em;color:#fff;background:rgba(239,29,37,.88);padding:8px 12px;border-radius:999px}
+
+section{padding:34px 0}
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:stretch}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.018));border:1px solid rgba(255,255,255,.08);border-radius:22px;box-shadow:var(--shadow)}
+.panel{padding:28px}
+.kicker{font-size:13px;color:#ff5b62;text-transform:uppercase;letter-spacing:.11em;font-weight:800;margin-bottom:8px}
+h1,h2,h3{line-height:1.12}
+h1{font-size:clamp(36px,5vw,58px);margin:0 0 16px;letter-spacing:-.035em}
+h2{font-size:clamp(29px,4vw,42px);margin:0}
+h3{margin:0 0 8px}
+.lead{font-size:18px;color:#d7deea}
+.brand-box{display:flex;align-items:center;justify-content:center;padding:28px;min-height:100%}
+.brand-box img{display:block;width:min(460px,100%);height:auto;max-width:100%;object-fit:contain}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:18px;flex-wrap:wrap}
+.section-note{max-width:100%;color:#cbd3df}
+.contact-quick{display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:12px;margin-top:16px;max-width:1120px}
+.mini-contact{padding:14px 16px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.025);box-shadow:var(--shadow)}
+.mini-contact-label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#9cabc0;font-weight:800;margin-bottom:10px}
+.mini-contact-actions{display:flex;gap:8px;flex-wrap:wrap}
+.contact-action{display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);font-size:13px;font-weight:800;color:#f4f7fb;transition:.2s ease}
+.contact-action:hover{border-color:rgba(239,29,37,.45);background:rgba(239,29,37,.09)}
+.contact-action-primary{background:linear-gradient(135deg,#ef1d25,#ff5157);border-color:transparent;color:#fff}
+.contact-action-soft{background:rgba(239,29,37,.08);border-color:rgba(239,29,37,.18)}
+.offer-id{font-weight:900;white-space:normal;color:#fff;font-size:11.5px;line-height:1.2}
+.status-stack{display:flex;gap:5px;flex-direction:column;align-items:flex-start;min-width:0}
+.callouts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.callout{padding:18px;border:1px solid rgba(255,255,255,.07);border-radius:17px;background:rgba(255,255,255,.025)}
+.callout strong{display:block;font-size:19px;margin-bottom:7px}
+.callout p{margin:0;color:var(--muted);font-size:14px}
+
+.table-wrap{overflow-x:hidden;border:1px solid rgba(255,255,255,.08);border-radius:20px;box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;table-layout:fixed;background:rgba(255,255,255,.018);font-size:12px}
+th,td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.065);text-align:left;vertical-align:top;line-height:1.3;overflow-wrap:anywhere;word-break:normal}
+th{position:sticky;top:0;background:#1a222e;color:#fff;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em}
+tbody tr:hover{background:rgba(255,255,255,.026)}
+td strong{font-size:12.5px}
+td small{display:block;color:var(--muted);margin-top:3px;font-size:11px;line-height:1.25}
+.price{font-weight:900;white-space:normal;line-height:1.22}
+.status{display:inline-flex;align-items:center;justify-content:center;padding:5px 7px;border-radius:999px;font-weight:900;font-size:10px;letter-spacing:.02em;white-space:normal;line-height:1.12;text-align:center}
+.status.top{background:rgba(233,184,79,.13);border:1px solid rgba(233,184,79,.36);color:#ffd778}
+.status.new{background:rgba(25,183,123,.13);border:1px solid rgba(25,183,123,.34);color:#79e7ba}
+.status.like-new{background:rgba(84,155,255,.13);border:1px solid rgba(84,155,255,.34);color:#9bc6ff}
+th:nth-child(1),td:nth-child(1){width:8.5%}
+th:nth-child(2),td:nth-child(2){width:17.5%}
+th:nth-child(3),td:nth-child(3){width:6.5%}
+th:nth-child(4),td:nth-child(4){width:9.5%}
+th:nth-child(5),td:nth-child(5){width:10.5%}
+th:nth-child(6),td:nth-child(6){width:6.5%}
+th:nth-child(7),td:nth-child(7){width:8.5%}
+th:nth-child(8),td:nth-child(8){width:7%}
+th:nth-child(9),td:nth-child(9){width:12%}
+th:nth-child(10),td:nth-child(10){width:13%}
+
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.info-box{padding:22px}
+.info-box p{margin:0;color:#d3dae5}
+.finance{border-left:4px solid var(--red);background:linear-gradient(90deg,rgba(239,29,37,.09),rgba(255,255,255,.018))}
+.finance strong{font-size:21px;display:block;margin-bottom:5px}
+.small-note{color:var(--muted);font-size:13px;margin-top:14px}
+
+.contact-zone{margin-top:6px;padding:0 0 8px}
+.contact-shell{border-radius:26px;background:linear-gradient(180deg,#10151c,#0b1118);border:1px solid rgba(255,255,255,.06);overflow:hidden;box-shadow:var(--shadow)}
+.cta{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:stretch;padding:34px 38px 28px}
+.cta-copy{display:flex;flex-direction:column;justify-content:flex-start;padding-top:4px}
+.cta-copy h2{font-size:clamp(38px,4.5vw,64px);line-height:1.08;margin:12px 0 40px;max-width:10ch;letter-spacing:-.025em}
+.cta-call{font-size:clamp(28px,3.2vw,48px);font-weight:900;line-height:1;text-transform:uppercase;letter-spacing:.01em;padding-left:100px}
+.cta-contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.cta-contact-card{padding:24px 26px;border:1px solid rgba(255,255,255,.08);border-radius:26px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.018));min-height:126px;display:flex;flex-direction:column;justify-content:center}
+.cta-contact-card-email{grid-column:1 / -1}
+.cta-contact-title{display:block;font-size:17px;text-transform:uppercase;letter-spacing:.08em;color:#9fb0ca;font-weight:900;margin-bottom:16px}
+.cta-contact-actions{display:flex;gap:14px;flex-wrap:wrap}
+.contact-action{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);font-size:15px;font-weight:850;color:#f4f7fb;transition:.2s ease}
+.contact-action:hover{border-color:rgba(239,29,37,.45);background:rgba(239,29,37,.09)}
+.contact-action-primary{background:linear-gradient(135deg,#ef1d25,#ff5157);border-color:transparent;color:#fff}
+.contact-action-soft{background:rgba(239,29,37,.10);border-color:rgba(239,29,37,.28)}
+.operator-wrap{padding:22px 38px 28px;border-top:1px solid rgba(255,255,255,.06)}
+.operator{margin:0;padding:24px 32px;display:grid;grid-template-columns:1fr 230px;gap:28px;align-items:center;border:1px solid rgba(214,168,70,.18);border-radius:24px;background:linear-gradient(180deg,#0b0d11,#0a0c10);overflow:visible}
+.operator-copy{font-size:11.5px;color:#d2dae6}
+.operator-copy .operator-title{display:block;margin-bottom:10px;font-size:12px;font-weight:900;letter-spacing:.075em;text-transform:uppercase;color:#e8edf6}
+.operator-copy .company{display:block;font-size:15px;margin-bottom:4px;color:#fff}
+.operator-copy p{margin:0;color:#d2dae6;line-height:1.55}
+.operator-copy a{text-decoration:underline;text-underline-offset:3px}
+.operator img{display:block;width:210px;height:auto;max-width:100%;object-fit:contain;justify-self:center;align-self:center}
+footer{padding:0 0 22px}
+.footer{border-top:1px solid rgba(255,255,255,.08);padding:28px 0 4px;text-align:center;color:var(--muted);font-size:14px}
+.footer strong{color:#fff;letter-spacing:.06em}
+
+@media(max-width:900px){
+  .intro-grid,.info-grid,.operator,.cta,.contact-quick,.cta-contact-grid{grid-template-columns:1fr}
+  .callouts{grid-template-columns:1fr}
+  .cta-contact-card-email{grid-column:auto}
+  .cta-copy h2{max-width:none;margin-bottom:22px}
+  .cta-call{padding-left:0;margin-bottom:10px}
+  .operator img{justify-self:start;width:190px;max-width:100%;height:auto;object-fit:contain}
+}
+@media(max-width:720px){
+  th,td{padding:8px 6px;font-size:11.5px}
+  .contact-action{width:100%}
+
+  .nav{align-items:flex-start;flex-direction:column;padding:11px 0}
+  .nav-brand img{width:175px}
+  .hero-overlay{padding:25px 18px 18px}
+  .wrap{width:min(var(--max),calc(100% - 22px))}
+}
+
+/* Language switch CZ / SK */
+.lang-switch{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;align-items:center;gap:5px;padding:6px 8px;border:1px solid rgba(218,177,88,.38);border-radius:999px;background:rgba(8,9,11,.92);box-shadow:0 8px 28px rgba(0,0,0,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-family:Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;line-height:1}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;min-width:30px;padding:7px 8px;border-radius:999px;color:#e8edf3;text-decoration:none;transition:.18s ease}
+.lang-switch a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.lang-switch a.active{color:#17120a;background:linear-gradient(135deg,#f4dfa4,#c99d45 68%,#fff2c7);box-shadow:inset 0 0 0 1px rgba(255,255,255,.34)}
+.lang-switch .sep{color:#7f8792;font-weight:500;letter-spacing:0}
+@media(max-width:600px){.lang-switch{right:10px;bottom:10px;padding:5px 6px}.lang-switch a{min-width:28px;padding:6px 7px;font-size:10px}}
+
+</style>
+
+
+<link href="https://best-sale.eu/automobily.html" hreflang="cs" rel="alternate"/><link href="https://best-sale.eu/sk/automobily.html" hreflang="sk" rel="alternate"/><link href="https://best-sale.eu/pl/automobily.html" hreflang="pl" rel="alternate"/><link href="https://best-sale.eu/en/automobily.html" hreflang="en" rel="alternate"/><link href="https://best-sale.eu/automobily.html" hreflang="x-default" rel="alternate"/></head>
+<body><div aria-label="Volba jazyka" class="lang-switch"><a aria-current="page" class="active" href="automobily.html" lang="cs">CZ</a><span class="sep">|</span><a href="sk/automobily.html" lang="sk">SK</a><span class="sep">|</span><a href="pl/automobily.html" lang="pl">PL</a><span class="sep">|</span><a href="en/automobily.html" lang="en">EN</a></div>
+
+<header>
+<div class="wrap nav">
+<div class="nav-brand">
+<a href="index.html"><img alt="BEST-SALE.EU" src="assets/images/cf78fc4e5ea27455.png"/></a>
+<span>Automobily</span>
+</div>
+<nav aria-label="Hlavní navigace">
+<ul>
+<li><a href="index.html">Domů</a></li>
+<li><a href="kontejnery.html">Kontejnery</a></li>
+<li><a class="active" href="automobily.html">Automobily</a></li>
+<li><a href="elektronika.html">Elektronika</a></li>
+<li><a href="nemovitosti.html">Nemovitosti</a></li>
+<li><a href="ostatni.html">Ostatní</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="wrap">
+<div class="hero-image">
+<img alt="Toyota a Lexus – ilustrační prezentační grafika" src="assets/images/e17eb0fac7261212.jpg"/>
+<div class="hero-overlay"><strong>Nové · referenční · předváděcí vozy</strong></div>
+</div>
+</div>
+</section>
+<section>
+<div class="wrap intro-grid">
+<article class="card panel">
+<div class="kicker">Automobily</div>
+<h1>Prodej vozů</h1>
+<p class="lead">
+          Jedním z primárních zaměření společnosti AutoFinancial je prodej nových, referenčních a předváděcích vozů Toyota a Lexus a vozidel z ukončených operativních a finančních leasingů renomovaných poskytovatelů (AYVENS, Toyota Financial Services, ARVAL) nebo z leasingů obou druhů poskytnutých vlastními kapacitami. <strong>Pokud jde o nové vozy, jde zpravidla o přebytky vozů objednaných pro fleetové flotily ve velkých sériích za výhodných podmínek.</strong>
+</p>
+<p class="lead">
+          V nabídce se však objevují i vozy jiných značek, zemědělské stroje, lesní technika, manipulační technika a nákladní vozy, které byly vykoupeny nebo nabyty jako majetek koupené společnosti.
+        </p>
+<div class="callouts">
+<div class="callout"><strong>Toyota &amp; Lexus</strong><p>Hlavní zaměření nabídky – nové, referenční a předváděcí vozy.</p></div>
+<div class="callout"><strong>Leasingové vozy</strong><p>Vozidla z ukončených operativních a finančních leasingů.</p></div>
+<div class="callout"><strong>Další technika</strong><p>Podle aktuální nabídky také užitková, manipulační, lesní a zemědělská technika.</p></div>
+</div>
+</article>
+<aside class="card brand-box">
+<img alt="AutoFinancial" src="assets/images/a3d85d733635da08.png"/>
+</aside>
+</div>
+</section>
+<section id="nabidka">
+<div class="wrap">
+<div class="section-head">
+<div>
+<div class="kicker">Aktuální nabídka</div>
+<h2>Vozidla aktuálně k dispozici</h2>
+</div>
+<div class="section-note">
+          Podrobné informace, fotografie a kompletní specifikace ke všem nabízeným vozidlům poskytujeme e-mailem, telefonicky nebo přes WhatsApp.
+          <div class="contact-quick">
+<div class="mini-contact">
+<span class="mini-contact-label">E-mail</span>
+<div class="mini-contact-actions">
+<a class="contact-action contact-action-primary" href="mailto:info@auto-financial.sk?subject=Popt%C3%A1vka%20-%20automobil">info@auto-financial.sk</a>
+</div>
+</div>
+<div class="mini-contact">
+<span class="mini-contact-label">CZ kontakt</span>
+<div class="mini-contact-actions">
+<a class="contact-action" href="tel:+420776167713">+420 776 167 713</a>
+<a class="contact-action contact-action-soft" href="https://wa.me/420776167713" rel="noopener" target="_blank">WhatsApp CZ</a>
+</div>
+</div>
+<div class="mini-contact">
+<span class="mini-contact-label">SK kontakt</span>
+<div class="mini-contact-actions">
+<a class="contact-action" href="tel:+421903540547">+421 903 540 547</a>
+<a class="contact-action contact-action-soft" href="https://wa.me/421903540547" rel="noopener" target="_blank">WhatsApp SK</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Číslo nabídky</th>
+<th>Vozidlo</th>
+<th>Karoserie</th>
+<th>Barva</th>
+<th>Pohon / výkon</th>
+<th>Datum</th>
+<th>Stav / původ</th>
+<th>Nájezd</th>
+<th>Cena</th>
+<th>Stav nabídky</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="offer-id">AF-06-201</td>
+<td><strong>TOYOTA COROLLA</strong><small>1,8 HEV Comfort Touring Sports</small></td>
+<td>kombi</td>
+<td>bílá</td>
+<td>hybrid · 103 kW</td>
+<td>6/2026</td>
+<td>referenční</td>
+<td>8.500 km</td>
+<td class="price">539.999 Kč / 21.999 EUR</td>
+<td><div class="status-stack"><span class="status top">TOP NABÍDKA</span><span class="status like-new">STAV NOVÉHO VOZU</span></div></td>
+</tr>
+<tr>
+<td class="offer-id">AF-06-202</td>
+<td><strong>TOYOTA COROLLA</strong><small>1,8 HEV Comfort Touring Sports</small></td>
+<td>kombi</td>
+<td>hnědá metalíza</td>
+<td>hybrid · 103 kW</td>
+<td>5/2025</td>
+<td>referenční</td>
+<td>42.000 km</td>
+<td class="price">509.999 Kč / 20.999 EUR</td>
+<td><span class="status top">TOP NABÍDKA</span></td>
+</tr>
+<tr>
+<td class="offer-id">AF-06-205</td>
+<td><strong>TOYOTA COROLLA</strong><small>1,8 HEV Comfort Touring Sports</small></td>
+<td>kombi</td>
+<td>bílá</td>
+<td>hybrid · 103 kW</td>
+<td>9/2026</td>
+<td>nové</td>
+<td>0 km</td>
+<td class="price">629.999 Kč / 26.499 EUR</td>
+<td><span class="status new">NOVÝ VŮZ</span></td>
+</tr>
+<tr>
+<td class="offer-id">AF-06-206</td>
+<td><strong>TOYOTA COROLLA</strong><small>1,8 HEV Comfort Touring Sports</small></td>
+<td>kombi</td>
+<td>černá</td>
+<td>hybrid · 103 kW</td>
+<td>9/2026</td>
+<td>nové</td>
+<td>0 km</td>
+<td class="price">629.999 Kč / 26.499 EUR</td>
+<td><span class="status new">NOVÝ VŮZ</span></td>
+</tr>
+<tr>
+<td class="offer-id">AF-06-207</td>
+<td><strong>TOYOTA COROLLA</strong><small>1,8 HEV Comfort Touring Sports</small></td>
+<td>kombi</td>
+<td>modrá metalíza</td>
+<td>hybrid · 103 kW</td>
+<td>9/2026</td>
+<td>nové</td>
+<td>0 km</td>
+<td class="price">649.999 Kč / 27.299 EUR</td>
+<td><span class="status new">NOVÝ VŮZ</span></td>
+</tr>
+<tr>
+<td class="offer-id">AF-06-209</td>
+<td><strong>TOYOTA COROLLA</strong><small>1,8 HEV Comfort Touring Sports</small></td>
+<td>kombi</td>
+<td>hnědá metalíza</td>
+<td>hybrid · 103 kW</td>
+<td>9/2026</td>
+<td>nové</td>
+<td>0 km</td>
+<td class="price">629.999 Kč / 27.299 EUR</td>
+<td><span class="status new">NOVÝ VŮZ</span></td>
+</tr>
+<tr>
+<td class="offer-id">AF-06-212</td>
+<td><strong>TOYOTA COROLLA</strong><small>1,8 HEV Comfort Touring Sports</small></td>
+<td>kombi</td>
+<td>stříbrná metalíza</td>
+<td>hybrid · 103 kW</td>
+<td>9/2026</td>
+<td>nové</td>
+<td>0 km</td>
+<td class="price">629.999 Kč / 27.299 EUR</td>
+<td><span class="status new">NOVÝ VŮZ</span></td>
+</tr>
+<tr>
+<td class="offer-id">AF-06-213</td>
+<td><strong>TOYOTA COROLLA</strong><small>1,8 HEV Comfort Touring Sports</small></td>
+<td>kombi</td>
+<td>červená</td>
+<td>hybrid · 103 kW</td>
+<td>9/2026</td>
+<td>nové</td>
+<td>0 km</td>
+<td class="price">629.999 Kč / 27.299 EUR</td>
+<td><span class="status new">NOVÝ VŮZ</span></td>
+</tr>
+<tr>
+<td class="offer-id">AF-06-214</td>
+<td><strong>TOYOTA COROLLA</strong><small>1,8 HEV Comfort</small></td>
+<td>sedan</td>
+<td>bílá</td>
+<td>hybrid · 103 kW</td>
+<td>9/2026</td>
+<td>nové</td>
+<td>0 km</td>
+<td class="price">589.999 Kč / 24.499 EUR</td>
+<td><span class="status new">NOVÝ VŮZ</span></td>
+</tr>
+<tr>
+<td class="offer-id">AF-06-215</td>
+<td><strong>TOYOTA COROLLA</strong><small>1,8 HEV Comfort</small></td>
+<td>sedan</td>
+<td>černá</td>
+<td>hybrid · 103 kW</td>
+<td>9/2026</td>
+<td>nové</td>
+<td>0 km</td>
+<td class="price">629.999 Kč / 26.099 EUR</td>
+<td><span class="status new">NOVÝ VŮZ</span></td>
+</tr>
+<tr>
+<td class="offer-id">AF-06-216</td>
+<td><strong>TOYOTA CAMRY</strong><small>2,5 HEV Executive</small></td>
+<td>sedan</td>
+<td>šedá metalíza</td>
+<td>hybrid · 165 kW</td>
+<td>5/2026</td>
+<td>předváděcí</td>
+<td>600 km</td>
+<td class="price">1.049.999 Kč / 43.399 EUR</td>
+<td><span class="status like-new">STAV NOVÉHO VOZU</span></td>
+</tr>
+<tr>
+<td class="offer-id">AF-06-217</td>
+<td><strong>TOYOTA CAMRY</strong><small>2,5 HEV Executive</small></td>
+<td>sedan</td>
+<td>černá metalíza</td>
+<td>hybrid · 165 kW</td>
+<td>4/2026</td>
+<td>předváděcí</td>
+<td>900 km</td>
+<td class="price">1.029.999 Kč / 42.499 EUR</td>
+<td><span class="status like-new">STAV NOVÉHO VOZU</span></td>
+</tr>
+<tr>
+<td class="offer-id">AF-06-218</td>
+<td><strong>TOYOTA C-HR</strong><small>ELEKTRO Executive</small></td>
+<td>SUV</td>
+<td>černá metalíza</td>
+<td>elektro · 167 kW</td>
+<td>9/2026</td>
+<td>nové</td>
+<td>0 km</td>
+<td class="price">1.309.999 Kč / 54.199 EUR</td>
+<td><span class="status new">NOVÝ VŮZ</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="info-grid">
+<article class="card info-box">
+<h3>Ceny, záruka a registrace</h3>
+<p>
+            Veškeré ceny jsou uvedeny včetně DPH. U všech nabízených vozidel, jsou-li v tovární záruce, byly dodrženy veškeré podmínky záruky, zejména předepsané servisní prohlídky. Všechny námi nabízené vozy jsou registrovány (pokud nejde o nové vozy k první registraci) v ČR nebo SR. Bez ohledu na zemi registrace konkrétního vozu a zemi, kam bude vozidlo prodáno (platí pouze mezi ČR a SR), je v ceně vozu zahrnuta veškerá administrativa a zajištění všech úkonů spojených s registrací v zemi kupujícího na jméno kupujícího.
+          </p>
+</article>
+<article class="card info-box finance">
+<strong>Financování bez omezení na jednu formu</strong>
+<p>
+            U všech nabízených vozidel jsou dostupné veškeré běžné formy financování. Konkrétní způsob financování, akontaci, délku financování a další parametry lze nastavit individuálně podle kupujícího a konkrétního vozidla.
+          </p>
+</article>
+</div>
+<p class="small-note">* Nabídka, dostupnost, nájezd a ceny se mohou průběžně měnit do uzavření kupní smlouvy.</p>
+</div>
+</section>
+<section class="contact-zone">
+<div class="wrap">
+<div class="contact-shell">
+<div class="cta">
+<div class="cta-copy">
+<div class="kicker">Kontakt</div>
+<h2>Máte zájem o konkrétní vůz?</h2>
+<div class="cta-call">Kontaktujte nás</div>
+</div>
+<div class="cta-contact-grid">
+<div class="cta-contact-card cta-contact-card-email">
+<span class="cta-contact-title">E-mail</span>
+<div class="cta-contact-actions">
+<a class="contact-action contact-action-primary" href="mailto:info@auto-financial.sk?subject=Popt%C3%A1vka%20-%20automobil">info@auto-financial.sk</a>
+</div>
+</div>
+<div class="cta-contact-card">
+<span class="cta-contact-title">CZ telefon a WhatsApp</span>
+<div class="cta-contact-actions">
+<a class="contact-action" href="tel:+420776167713">+420 776 167 713</a>
+<a class="contact-action contact-action-soft" href="https://wa.me/420776167713" rel="noopener" target="_blank">WhatsApp CZ</a>
+</div>
+</div>
+<div class="cta-contact-card">
+<span class="cta-contact-title">SK telefon a WhatsApp</span>
+<div class="cta-contact-actions">
+<a class="contact-action" href="tel:+421903540547">+421 903 540 547</a>
+<a class="contact-action contact-action-soft" href="https://wa.me/421903540547" rel="noopener" target="_blank">WhatsApp SK</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap footer"><strong>© BEST-SALE.EU</strong></div>
+</footer>
+</body>
+</html>

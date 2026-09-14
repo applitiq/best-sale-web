@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Ostatní | BEST-SALE.EU</title>
+<style>
+:root{
+  --bg:#04070c;
+  --bg2:#0a0f18;
+  --panel:#0b1118;
+  --panel2:#101823;
+  --line:rgba(255,255,255,.08);
+  --soft:rgba(255,255,255,.04);
+  --text:#f4f7fb;
+  --muted:#bcc6d6;
+  --muted2:#8f9cb0;
+  --red:#ff3b41;
+  --red2:#d91d25;
+  --gold1:#f7dc93;
+  --gold2:#c89d3f;
+  --shadow:0 20px 50px rgba(0,0,0,.40);
+  --max:1240px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255,59,65,.10), transparent 34%),
+    radial-gradient(circle at 80% 0%, rgba(255,59,65,.05), transparent 28%),
+    linear-gradient(180deg,#03060b 0%, #060b12 100%);
+  line-height:1.45;
+}
+a{color:inherit;text-decoration:none}
+.shell{width:min(var(--max),calc(100% - 16px));margin:6px auto 18px;border:1px solid #213040;border-radius:16px;overflow:hidden;background:linear-gradient(180deg,#070b12 0%,#090f17 100%);box-shadow:var(--shadow)}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;border-bottom:1px solid rgba(255,214,102,.18);background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.12))}
+.nav-brand img{height:42px;width:auto;display:block}
+.nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.nav a{font-size:12px;color:#e8edf5;opacity:.88;position:relative;padding:6px 0;font-weight:500}
+.nav a.active{opacity:1}
+.nav a.active:after{content:'';position:absolute;left:0;right:0;bottom:-9px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--red),#ff7075)}
+.wrap{width:min(var(--max),calc(100% - 36px));margin:0 auto}
+.hero{position:relative;min-height:360px;background-image:url('assets/images/20f9bdcdf3e17ec2.png');background-size:cover;background-position:center}
+.hero:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,14,.82) 0%, rgba(5,8,14,.66) 34%, rgba(5,8,14,.28) 62%, rgba(5,8,14,.18) 100%),linear-gradient(180deg,rgba(4,7,12,.08),rgba(4,7,12,.55))}
+.hero-overlay{position:relative;z-index:2;padding:44px 20px 42px;display:flex;align-items:flex-end;min-height:360px}
+.hero-copy{max-width:620px}
+.kicker{font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#ff5f64;margin:0 0 10px}
+.hero h1{margin:0 0 12px;font-size:clamp(42px,5vw,68px);line-height:.97;letter-spacing:-.03em}
+.hero p{margin:0;font-size:18px;color:#d8e0ec;max-width:48ch}
+.section{padding:22px 0}
+.intro-card{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;padding:22px;border-top:1px solid var(--line)}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.panel p{margin:0;color:#d7deea;font-size:15px}
+.panel p + p{margin-top:12px}
+.highlight-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.highlight{padding:16px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.02)}
+.highlight strong{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#ff6167;margin-bottom:6px}
+.highlight span{display:block;color:#edf2f8;font-size:15px;line-height:1.35}
+.offer-header{padding:18px 0 10px}
+.offer-header h2{margin:0;font-size:clamp(42px,6vw,74px);line-height:.95;color:var(--red);font-weight:1000;letter-spacing:-.04em;text-transform:uppercase}
+.offer-header .sub{margin:18px 0 18px;color:#e2e8f0;font-size:15px}
+.contact-mini-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.contact-mini{padding:14px 16px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.025);box-shadow:var(--shadow)}
+.contact-mini-label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#9cabc0;font-weight:800;margin-bottom:10px}
+.contact-mini-actions{display:flex;gap:8px;flex-wrap:wrap}
+.contact-action{display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);font-size:13px;font-weight:800;color:#f4f7fb;transition:.2s ease}
+.contact-action:hover{border-color:rgba(239,29,37,.45);background:rgba(239,29,37,.09)}
+.contact-action.primary{background:linear-gradient(135deg,#ef1d25,#ff5157);border-color:transparent;color:#fff}
+.contact-action.soft{background:rgba(239,29,37,.08);border-color:rgba(239,29,37,.18)}
+.catalog-section{padding:18px 0 0}
+.catalog-title{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.catalog-title h3{margin:0;font-size:28px;letter-spacing:-.02em}
+.catalog-title .note{font-size:13px;color:var(--muted)}
+.table-wrap{overflow-x:auto;border:1px solid rgba(255,255,255,.08);border-radius:20px;box-shadow:var(--shadow);background:rgba(255,255,255,.018)}
+.offer-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:12.5px;min-width:1040px}
+.offer-table th,.offer-table td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.065);text-align:left;vertical-align:top;line-height:1.3}
+.offer-table th{position:sticky;top:0;background:#1a222e;color:#fff;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;z-index:1}
+.offer-table tbody tr:hover{background:rgba(255,255,255,.026)}
+.offer-id{font-weight:900;color:#fff;font-size:11.2px;line-height:1.2;white-space:normal}
+.offer-table td strong{font-size:12.8px;display:block}
+.origin{white-space:nowrap}
+.price-cell{font-weight:800;color:#fff}
+.price-cell span{display:block}
+.footnote{margin-top:10px;color:#d6deea;font-size:13px}
+.image-card{margin:10px 0 16px;border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.image-card img{display:block;width:100%;height:auto}
+.rich-note{padding:18px 20px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,.025),rgba(255,59,65,.035));color:#dce4ef;font-size:14px}
+.rich-note p{margin:0 0 12px}
+.rich-note p:last-child{margin-bottom:0}
+.rich-note a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+.status-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
+.status-card{padding:22px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.02);box-shadow:var(--shadow)}
+.status-card .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(239,29,37,.08);border:1px solid rgba(239,29,37,.22);color:#ffd7d8;font-weight:900;font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.status-card h4{margin:0 0 8px;font-size:28px;line-height:1.05;letter-spacing:-.02em}
+.status-card p{margin:0;color:#d6deea;font-size:14px}
+.status-card p + p{margin-top:10px}
+.footer{margin-top:24px;border-top:1px solid rgba(255,214,102,.22);padding:16px 20px 22px;text-align:center;font-size:12px;color:#cbd5e3}
+.footer .line{margin:2px 0}
+.footer strong{color:#fff}
+
+/* specific widths */
+.material-table th:nth-child(1), .material-table td:nth-child(1){width:9%}
+.material-table th:nth-child(2), .material-table td:nth-child(2){width:19%}
+.material-table th:nth-child(3), .material-table td:nth-child(3){width:10%}
+.material-table th:nth-child(4), .material-table td:nth-child(4){width:9%}
+.material-table th:nth-child(5), .material-table td:nth-child(5){width:8.5%}
+.material-table th:nth-child(6), .material-table td:nth-child(6){width:9%}
+.material-table th:nth-child(7), .material-table td:nth-child(7){width:14%}
+.material-table th:nth-child(8), .material-table td:nth-child(8){width:14%}
+.material-table th:nth-child(9), .material-table td:nth-child(9){width:12.5%}
+.equip-table th:nth-child(1), .equip-table td:nth-child(1){width:9%}
+.equip-table th:nth-child(2), .equip-table td:nth-child(2){width:22%}
+.equip-table th:nth-child(3), .equip-table td:nth-child(3){width:10%}
+.equip-table th:nth-child(4), .equip-table td:nth-child(4){width:9%}
+.equip-table th:nth-child(5), .equip-table td:nth-child(5){width:8%}
+.equip-table th:nth-child(6), .equip-table td:nth-child(6){width:11%}
+.equip-table th:nth-child(7), .equip-table td:nth-child(7){width:12%}
+.equip-table th:nth-child(8), .equip-table td:nth-child(8){width:12%}
+.equip-table th:nth-child(9), .equip-table td:nth-child(9){width:15%}
+
+@media(max-width:980px){
+  .topbar{flex-direction:column;align-items:flex-start;gap:8px}
+  .nav{gap:14px}
+  .intro-card,.contact-mini-grid,.status-grid{grid-template-columns:1fr}
+  .highlight-list{grid-template-columns:1fr}
+  .hero-overlay{padding:34px 18px}
+  .hero p{font-size:16px}
+  .offer-header h2{font-size:46px}
+}
+@media(max-width:720px){
+  .wrap{width:min(var(--max),calc(100% - 22px))}
+  .hero{min-height:300px}
+  .hero-overlay{min-height:300px}
+  .hero h1{font-size:40px}
+  .panel{padding:18px}
+  .offer-table th,.offer-table td{padding:8px 6px;font-size:11.4px}
+}
+
+/* Language switch CZ / SK */
+.lang-switch{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;align-items:center;gap:5px;padding:6px 8px;border:1px solid rgba(218,177,88,.38);border-radius:999px;background:rgba(8,9,11,.92);box-shadow:0 8px 28px rgba(0,0,0,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-family:Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;line-height:1}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;min-width:30px;padding:7px 8px;border-radius:999px;color:#e8edf3;text-decoration:none;transition:.18s ease}
+.lang-switch a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.lang-switch a.active{color:#17120a;background:linear-gradient(135deg,#f4dfa4,#c99d45 68%,#fff2c7);box-shadow:inset 0 0 0 1px rgba(255,255,255,.34)}
+.lang-switch .sep{color:#7f8792;font-weight:500;letter-spacing:0}
+@media(max-width:600px){.lang-switch{right:10px;bottom:10px;padding:5px 6px}.lang-switch a{min-width:28px;padding:6px 7px;font-size:10px}}
+
+</style>
+
+
+<link href="https://best-sale.eu/ostatni.html" hreflang="cs" rel="alternate"/><link href="https://best-sale.eu/sk/ostatni.html" hreflang="sk" rel="alternate"/><link href="https://best-sale.eu/pl/ostatni.html" hreflang="pl" rel="alternate"/><link href="https://best-sale.eu/en/ostatni.html" hreflang="en" rel="alternate"/><link href="https://best-sale.eu/ostatni.html" hreflang="x-default" rel="alternate"/></head>
+<body><div aria-label="Volba jazyka" class="lang-switch"><a aria-current="page" class="active" href="ostatni.html" lang="cs">CZ</a><span class="sep">|</span><a href="sk/ostatni.html" lang="sk">SK</a><span class="sep">|</span><a href="pl/ostatni.html" lang="pl">PL</a><span class="sep">|</span><a href="en/ostatni.html" lang="en">EN</a></div>
+
+<div class="shell">
+<header class="topbar">
+<a aria-label="BEST-SALE.EU" class="nav-brand" href="index.html"><img alt="BEST-SALE.EU" src="assets/images/cf78fc4e5ea27455.png"/></a>
+<nav class="nav">
+<a href="index.html">Úvod</a>
+<a href="kontejnery.html">Kontejnery</a>
+<a href="automobily.html">Automobily</a>
+<a href="elektronika.html">Elektronika</a>
+<a href="nemovitosti.html">Nemovitosti</a>
+<a class="active" href="ostatni.html">Ostatní</a>
+<a href="#kontakt">Kontakt</a>
+</nav>
+</header>
+<section class="hero">
+<div class="hero-overlay wrap">
+<div class="hero-copy">
+<p class="kicker">Ostatní</p>
+<h1>Ostatní</h1>
+<p>V této části najdete nabídku zboží a komodit jinam nezatříditelných, zejména pak <strong>stavební materiál</strong> (zbytkový i ve velkém množství), <strong>hutní materiál</strong>, <strong>stavební stroje a techniku</strong>, <strong>vybavení staveb, dílen a provozoven</strong>, <strong>profi nářadí</strong>, nabídku komodit jako je uhlí, pelety a brikety, ale třeba i kompletní regálové paletové systémy, lešení a další.</p>
+</div>
+</div>
+</section>
+<div class="wrap">
+<section class="offer-header">
+<h2>Aktuální nabídka</h2>
+<p class="sub">Podrobné informace poskytujeme e-mailem, telefonicky nebo přes WhatsApp.</p>
+<div class="contact-mini-grid">
+<div class="contact-mini">
+<span class="contact-mini-label">E-mail</span>
+<div class="contact-mini-actions">
+<a class="contact-action primary" href="mailto:info@best-sale.eu">info@best-sale.eu</a>
+</div>
+</div>
+<div class="contact-mini">
+<span class="contact-mini-label">CZ kontakt</span>
+<div class="contact-mini-actions">
+<a class="contact-action" href="tel:+420776167713">+420 776 167 713</a>
+<a class="contact-action soft" href="https://wa.me/420776167713" rel="noopener" target="_blank">WhatsApp CZ</a>
+</div>
+</div>
+<div class="contact-mini">
+<span class="contact-mini-label">SK kontakt</span>
+<div class="contact-mini-actions">
+<a class="contact-action" href="tel:+421903540547">+421 903 540 547</a>
+<a class="contact-action soft" href="https://wa.me/421903540547" rel="noopener" target="_blank">WhatsApp SK</a>
+</div>
+</div>
+</div>
+</section>
+<section class="catalog-section">
+<div class="catalog-title">
+<h3>Stavební materiál <span style="color:#a9b6c8;font-weight:700;">(včetně hutního)</span></h3>
+</div>
+<div class="table-wrap">
+<table class="offer-table material-table">
+<thead>
+<tr>
+<th>Číslo nabídky</th>
+<th>Položka</th>
+<th>Rozměry mm<br/>Š×D×V</th>
+<th>Původ</th>
+<th>K dispozici</th>
+<th>Množství / paleta</th>
+<th>CZ cena<br/>bez DPH / vč. DPH</th>
+<th>SK cena<br/>bez DPH / vč. DPH</th>
+<th>Min. odběr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="offer-id">AF-03-501</td>
+<td><strong>Wienerberger Porotherm 30 Profi P12</strong></td>
+<td>300×240×249</td>
+<td><span class="origin">výkup SK</span></td>
+<td>85 palet</td>
+<td>80 ks</td>
+<td class="price-cell"><span>35,16 Kč / 42,54 Kč / ks</span></td>
+<td class="price-cell"><span>1,45 EUR / 1,78 EUR / ks</span></td>
+<td>ucelený kamion 18 palet</td>
+</tr>
+<tr>
+<td class="offer-id">AF-03-502</td>
+<td><strong>Wienerberger Porotherm 30 Profi P10</strong></td>
+<td>300×240×249</td>
+<td><span class="origin">výkup CZ</span></td>
+<td>88 palet</td>
+<td>80 ks</td>
+<td class="price-cell"><span>33,47 Kč / 40,50 Kč / ks</span></td>
+<td class="price-cell"><span>1,38 EUR / 1,70 EUR / ks</span></td>
+<td>ucelený kamion 18 palet</td>
+</tr>
+<tr>
+<td class="offer-id">AF-03-504</td>
+<td><strong>Wienerberger Porotherm 25 Profi P12</strong></td>
+<td>375×250×249</td>
+<td><span class="origin">výkup SK</span></td>
+<td>98 palet</td>
+<td>60 ks</td>
+<td class="price-cell"><span>42,20 Kč / 51,06 Kč / ks</span></td>
+<td class="price-cell"><span>1,74 EUR / 2,14 EUR / ks</span></td>
+<td>ucelený kamion 20 palet</td>
+</tr>
+<tr>
+<td class="offer-id">AF-03-505</td>
+<td><strong>Ytong Thermo 300 PDK P2-400</strong></td>
+<td>300×599×249</td>
+<td><span class="origin">výkup SK</span></td>
+<td>&gt;100 palet</td>
+<td>30 ks</td>
+<td class="price-cell"><span>97,50 Kč / 117,98 Kč / ks</span></td>
+<td class="price-cell"><span>4,02 EUR / 4,94 EUR / ks</span></td>
+<td>ucelený kamion 30 palet</td>
+</tr>
+<tr>
+<td class="offer-id">AF-03-508</td>
+<td><strong>Ytong Klasik 300 PDK P2-400</strong></td>
+<td>300×599×249</td>
+<td><span class="origin">výkup SK</span></td>
+<td>&gt;100 palet</td>
+<td>30 ks</td>
+<td class="price-cell"><span>97,50 Kč / 117,98 Kč / ks</span></td>
+<td class="price-cell"><span>4,02 EUR / 4,94 EUR / ks</span></td>
+<td>ucelený kamion 30 palet</td>
+</tr>
+<tr>
+<td class="offer-id">AF-03-509</td>
+<td><strong>Zámková dlažba Premac Klasiko 6 šedá</strong></td>
+<td>200×100×60</td>
+<td><span class="origin">výkup CZ</span></td>
+<td>83 palet</td>
+<td>9,6 m²</td>
+<td class="price-cell"><span>206,24 Kč / 249,55 Kč / m²</span></td>
+<td class="price-cell"><span>8,50 EUR / 10,46 EUR / m²</span></td>
+<td>ucelený kamion 16–18 palet</td>
+</tr>
+<tr>
+<td class="offer-id">AF-03-511</td>
+<td><strong>Zámková dlažba Premac Klasiko 6 grafitová</strong></td>
+<td>200×100×60</td>
+<td><span class="origin">výkup CZ</span></td>
+<td>&gt;100 palet</td>
+<td>9,6 m²</td>
+<td class="price-cell"><span>206,24 Kč / 249,55 Kč / m²</span></td>
+<td class="price-cell"><span>8,50 EUR / 10,46 EUR / m²</span></td>
+<td>ucelený kamion 16–18 palet</td>
+</tr>
+<tr>
+<td class="offer-id">AF-03-512</td>
+<td><strong>Zámková dlažba Premac Klasiko 6 hnědá</strong></td>
+<td>200×100×60</td>
+<td><span class="origin">výkup CZ</span></td>
+<td>62 palet</td>
+<td>9,6 m²</td>
+<td class="price-cell"><span>206,24 Kč / 249,55 Kč / m²</span></td>
+<td class="price-cell"><span>8,50 EUR / 10,46 EUR / m²</span></td>
+<td>ucelený kamion 16–18 palet</td>
+</tr>
+<tr>
+<td class="offer-id">AF-03-514</td>
+<td><strong>Zámková dlažba Premac Klasiko 6 červená</strong></td>
+<td>200×100×60</td>
+<td><span class="origin">výkup CZ</span></td>
+<td>38 palet</td>
+<td>9,6 m²</td>
+<td class="price-cell"><span>206,24 Kč / 249,55 Kč / m²</span></td>
+<td class="price-cell"><span>8,50 EUR / 10,46 EUR / m²</span></td>
+<td>ucelený kamion 16–18 palet</td>
+</tr>
+<tr>
+<td class="offer-id">AF-03-516</td>
+<td><strong>Zámková dlažba Premac Cavino Kombi 6 šedá/grafit</strong></td>
+<td>800×1120×60</td>
+<td><span class="origin">výkup CZ</span></td>
+<td>&gt;100 palet</td>
+<td>8,96 m²</td>
+<td class="price-cell"><span>213,51 Kč / 258,35 Kč / m²</span></td>
+<td class="price-cell"><span>8,80 EUR / 10,82 EUR / m²</span></td>
+<td>ucelený kamion 18 palet</td>
+</tr>
+<tr>
+<td class="offer-id">AF-03-517</td>
+<td><strong>Zámková dlažba Premac Cavino Kombi 6 melír/mušlová</strong></td>
+<td>800×1120×60</td>
+<td><span class="origin">výkup CZ</span></td>
+<td>70 palet</td>
+<td>8,96 m²</td>
+<td class="price-cell"><span>213,51 Kč / 258,35 Kč / m²</span></td>
+<td class="price-cell"><span>8,80 EUR / 10,82 EUR / m²</span></td>
+<td>ucelený kamion 18 palet</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="footnote"><strong>*</strong> Doprava je u většiny ucelených kamionů zdarma. Minimální odběr je 1 ucelený kamion. V případě odběru všech palet v nabídce položky sleva 5 %.</div>
+</section>
+<section class="catalog-section">
+<div class="catalog-title">
+<h3>Vybavení staveb, dílen a provozoven</h3>
+</div>
+<div class="image-card"><img alt="Mobilní čerpací stanice TAB 950 Compact" src="assets/images/a11e9865e4580e2a.png"/></div>
+<div class="table-wrap">
+<table class="offer-table equip-table">
+<thead>
+<tr>
+<th>Číslo nabídky</th>
+<th>Položka</th>
+<th>Rozměry mm<br/>Š×D×V</th>
+<th>Původ</th>
+<th>K dispozici</th>
+<th>Hmotnost</th>
+<th>CZ cena<br/>bez DPH / vč. DPH</th>
+<th>SK cena<br/>bez DPH / vč. DPH</th>
+<th>Min. odběr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="offer-id">AF-03-518</td>
+<td><strong>Mobilní čerpací stanice TAB 950 Compact včetně čerpadla 230V</strong></td>
+<td>1100×1100×1270</td>
+<td><span class="origin">výkup NL</span></td>
+<td>6 ks</td>
+<td>480 kg bez čerp.</td>
+<td class="price-cell"><span>54 999,00 Kč / 66 548,79 Kč</span></td>
+<td class="price-cell"><span>2 268,84 EUR / 2 790,67 EUR</span></td>
+<td>1 ks (2 a více ks, sleva 3 %)</td>
+</tr>
+<tr>
+<td class="offer-id">AF-03-519</td>
+<td><strong>Mobilní čerpací stanice TAB 950 Compact včetně čerpadla 12V</strong></td>
+<td>1100×1100×1270</td>
+<td><span class="origin">výkup NL</span></td>
+<td>2 ks</td>
+<td>480 kg bez čerp.</td>
+<td class="price-cell"><span>54 999,00 Kč / 66 548,79 Kč</span></td>
+<td class="price-cell"><span>2 268,84 EUR / 2 790,67 EUR</span></td>
+<td>1 ks (2 ks, sleva 3 %)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="rich-note" style="margin-top:14px;">
+<p><strong>Námi nabízené výdejní zařízení byly vyrobeny v roce 2022</strong>, což však nijak nesnižuje jejich kvalitu. Jediné, co tento fakt snižuje, je cena, která je o něco málo vyšší, než 50% průměrné ceny v EU v tuto dobu. Tank boxy jsou nové, nikdy nepoužité, po provedené kontrole a poskytneme k nim 12měsíční záruku. Osazeny jsou špičkovými čerpadly <a href="https://www.piusi.com/" rel="noopener" target="_blank">PIUSI</a>, což platí pro obě varianty (12V / 230V).</p>
+<p>Palivové boxy <strong>TAB 950 Compact</strong> od výrobce <a href="https://www.deblesse.com/en/tanks/tab-fuel-box/fuel-box-compact/" rel="noopener" target="_blank">TAB De Blesse</a> (Holandsko) jsou kvalitní kompaktní a mobilní palivové boxy o objemu 950 litrů pro skladování nafty. Mají GPS systém, otvory pro vysokozdvižný vozík ze všech stran a závěsná oka. Dvojitá možnost využití čerpání (ruční a elektrická) z nich dělá top produkt ve své kategorii. Zejména na stavbách, ale i v jiných provozech, kde každá odstávka techniky potřebující naftu znamená obrovské ztráty, z nich dělá partnera „k nezaplacení“ v případech, kdy je nutné doplňovat palivo a dočasně není k dispozici elektřina. Mají veškeré certifikace a CE (Prohlášení o shodě).</p>
+</div>
+</section>
+<section class="catalog-section">
+<div class="catalog-title">
+<h3>Stavební stroje a technika</h3>
+</div>
+<div class="status-card">
+<div class="eyebrow">Aktuální stav</div>
+<h4>Aktuálně bez nabídky</h4>
+<p>V této kategorii není v současné době evidována žádná aktivní nabídka.</p>
+</div>
+</section>
+<section class="catalog-section">
+<div class="catalog-title">
+<h3>Komodity</h3>
+</div>
+<div class="status-card">
+<div class="eyebrow">Aktuální stav</div>
+<h4>Aktuálně bez nabídky</h4>
+</div>
+</section>
+<section class="catalog-section">
+<div class="catalog-title">
+<h3>Profi nářadí</h3>
+</div>
+<div class="status-card">
+<div class="eyebrow">Připravujeme</div>
+<h4>Aktuálně připravujeme nabídku</h4>
+<p>Aktuálně připravujeme a naceňujeme nabídku právě vykoupeného AKU a elektronářadí <strong>HILTI</strong>.</p>
+</div>
+</section>
+<section class="catalog-section">
+<div class="catalog-title">
+<h3>Lešení</h3>
+</div>
+<div class="status-card">
+<div class="eyebrow">Aktuální stav</div>
+<h4>Aktuálně bez nabídky</h4>
+<p>V této kategorii není v současné době žádná aktivní nabídka.</p>
+</div>
+</section>
+<section class="catalog-section">
+<div class="catalog-title">
+<h3>Regály, konstrukce, skladování</h3>
+</div>
+<div class="status-card">
+<div class="eyebrow">Aktuální stav</div>
+<h4>Aktuálně bez nabídky</h4>
+</div>
+</section>
+<section class="catalog-section">
+<div class="catalog-title">
+<h3>Ostatní</h3>
+</div>
+<div class="status-card">
+<div class="eyebrow">Aktuální stav</div>
+<h4>Aktuálně bez nabídky</h4>
+</div>
+</section>
+<footer class="footer" id="kontakt">
+<div class="line"><strong>BEST-SALE.EU</strong></div>
+<div class="line">Kontakt: info@best-sale.eu · +420 776 167 713 · +421 903 540 547</div>
+<div class="line">© BEST-SALE.EU</div>
+</footer>
+</div>
+</div>
+</body>
+</html>
